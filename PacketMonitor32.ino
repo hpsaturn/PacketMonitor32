@@ -3,6 +3,7 @@
 // #define BOARD_HAS_1BIT_SDMMC true // forces 1bit mode for SD MMC
 /* ------------------------------------------------ */
 
+#include <Arduino.h>
 #include "freertos/FreeRTOS.h"
 #include "esp_wifi.h"
 #include "esp_wifi_types.h"
@@ -21,12 +22,12 @@ using namespace std;
 #define MAX_CH 14       // 1 - 14 channels (1-11 for US, 1-13 for EU and 1-14 for Japan)
 #define SNAP_LEN 2324   // max len of each recieved packet
 
-#define BUTTON_PIN 5    // button to change the channel
+#define BUTTON_PIN 10    // button to change the channel
 
 #define USE_DISPLAY     // comment out if you don't want to use the OLED display
 #define FLIP_DISPLAY    // comment out if you don't like to flip it
-#define SDA_PIN 26
-#define SCL_PIN 27
+#define SDA_PIN 5
+#define SCL_PIN 4
 #define MAX_X 128
 #define MAX_Y 51
 
@@ -65,6 +66,9 @@ uint32_t pkts[MAX_X];       // here the packets per second will be saved
 uint32_t deauths = 0;       // deauth frames per second
 unsigned int ch = 1;        // current 802.11 channel
 int rssiSum;
+
+void wifi_promiscuous(void* buf, wifi_promiscuous_pkt_type_t type);
+void coreTask( void * p );
 
 /* ===== functions ===== */
 double getMultiplicator() {
