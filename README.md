@@ -39,7 +39,7 @@ Sometimes the device can get into a restart loop, because it crashes everytime w
 
 Also please be aware that not every packet can be saved all the time! If more packets come in that can be saved, they will be dropped.  
 
-## Compiling Source
+## Compiling Source on Arduino
 (**0.** Download and install [Arduino](https://www.arduino.cc/en/Main/Software))  
 **1.** Install the Arduino core for the ESP32: https://github.com/espressif/arduino-esp32#installation-instructions  
 **2.** Install this ESP8266/ESP32 OLED library: https://github.com/squix78/esp8266-oled-ssd1306  
@@ -50,6 +50,18 @@ Also please be aware that not every packet can be saved all the time! If more pa
 
 If you ran into upload problems, try setting the flash frequency to 40MHz and the upload speed 115200.  
 If you want to use your own hardware, you may want to edit the settings in lines 22 - 32.  
+
+## Compiling Source on Platformio
+
+**0.** Please install first [PlatformIO](http://platformio.org/) open source ecosystem for IoT compatible with **Arduino**
+**1.** [Download](https://github.com/spacehuhn/PacketMonitor32/archive/master.zip) and unzip the repository  
+**2.** Compiling and Uploading the firmware:
+
+``` bash
+pio run --target upload
+```
+
+**NOTE**: If you want use TTGO board, please select it on `platformio.ini`
 
 ## License
 
