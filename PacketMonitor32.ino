@@ -3,7 +3,6 @@
 // #define BOARD_HAS_1BIT_SDMMC true // forces 1bit mode for SD MMC
 /* ------------------------------------------------ */
 
-#include <Arduino.h>
 #include "freertos/FreeRTOS.h"
 #include "esp_wifi.h"
 #include "esp_wifi_types.h"
@@ -22,12 +21,18 @@ using namespace std;
 #define MAX_CH 14       // 1 - 14 channels (1-11 for US, 1-13 for EU and 1-14 for Japan)
 #define SNAP_LEN 2324   // max len of each recieved packet
 
-#define BUTTON_PIN 10    // button to change the channel
 
 #define USE_DISPLAY     // comment out if you don't want to use the OLED display
 #define FLIP_DISPLAY    // comment out if you don't like to flip it
+#ifndef TTGO
+#define BUTTON_PIN 5    // button to change the channel
+#define SDA_PIN 26
+#define SCL_PIN 27
+#else
+#define BUTTON_PIN 0    // button to change the channel
 #define SDA_PIN 5
 #define SCL_PIN 4
+#endif
 #define MAX_X 128
 #define MAX_Y 51
 
