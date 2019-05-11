@@ -24,11 +24,11 @@ using namespace std;
 
 #define USE_DISPLAY     // comment out if you don't want to use the OLED display
 #define FLIP_DISPLAY    // comment out if you don't like to flip it
-#ifndef TTGO
+#ifdef  DSTIKE
 #define BUTTON_PIN 5    // button to change the channel
 #define SDA_PIN 26
 #define SCL_PIN 27
-#else
+#elif   TTGO
 #define BUTTON_PIN 0    // button to change the channel
 #define SDA_PIN 5
 #define SCL_PIN 4
