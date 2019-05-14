@@ -10,6 +10,7 @@ It shows you the traffic of all nearby devices on the selected WiFi channel.
 - SD card support to capture traffic
 - better performance due to the powerful ESP32
 - shows average RSSI
+- [PlatformIO](http://platformio.org/) support
 
 ## Now Available on
 **Tindie**: https://goo.gl/kZmVug  
