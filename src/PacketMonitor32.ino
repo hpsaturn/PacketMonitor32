@@ -33,7 +33,7 @@ using namespace std;
 #define SDA_PIN 5
 #define SCL_PIN 4
 #endif
-#define MAX_X 128
+#define MAX_X 126
 #define MAX_Y 51
 
 #if CONFIG_FREERTOS_UNICORE
@@ -173,7 +173,7 @@ void draw() {
   display.setTextAlignment(TEXT_ALIGN_LEFT);
   display.drawString( 36,  0, ("Pkts:"));
 
-  display.drawLine(0, 63 - MAX_Y, MAX_X, 63 - MAX_Y);
+  display.drawLine(0, 63 - MAX_Y, MAX_X-1, 63 - MAX_Y);
   for (int i = 0; i < MAX_X; i++) {
     len = pkts[i] * multiplicator;
     display.drawLine(i, 63, i, 63 - (len > MAX_Y ? MAX_Y : len));
